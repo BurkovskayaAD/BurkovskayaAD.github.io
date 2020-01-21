@@ -1,0 +1,1565 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(-10px);
+  }
+}
+.header {
+  box-sizing: border-box;
+  width: 100%;
+  height: 50px;
+  padding-left: 10px;
+  border-bottom: 1px solid lightgrey;
+  box-shadow: 0 0 10px lightgrey;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+.header .menu-desktop {
+  display: none;
+}
+.header .menu-desktop-settings {
+  display: none;
+}
+.header input[type=checkbox] {
+  display: none;
+}
+.header .menu {
+  width: 100%;
+  display: inline-block;
+}
+.header .menu #menu {
+  display: none;
+}
+.header .menu .menu-icon {
+  font-size: 20px;
+  display: inline-block;
+  padding-top: 15px;
+}
+.header .menu .scroll-menu {
+  padding: 20px;
+  transform: translateX(-100%);
+  width: 100%;
+}
+.header .menu .scroll-menu .menu-settings {
+  width: 100%;
+}
+.header .menu .scroll-menu .menu-settings .menu-settings-options {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  padding-bottom: 20px;
+}
+.header .menu .scroll-menu .menu-settings .scroll-menu-icon {
+  font-size: 18px;
+  color: #333;
+}
+.header .menu .scroll-menu .menu-settings .menu-settings-text {
+  color: #333;
+  font-size: 14px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.header .menu .scroll-menu .search {
+  width: 100%;
+  background-image: url("img/search.png");
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  padding-left: 35px;
+  height: 46px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+  margin-bottom: 20px;
+}
+.header .menu .scroll-menu .others {
+  display: flex;
+  flex-direction: column;
+}
+.header .menu .scroll-menu .others .others-item {
+  padding-top: 15px;
+  height: 50px;
+  border-top: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+}
+.header .menu .scroll-menu .others .others-item .other-item-text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+.header .menu .scroll-menu .others .others-item .icon-others {
+  font-size: 16px;
+}
+.header .menu .scroll-menu .others .last-others-item {
+  border-bottom: 1px solid lightgrey;
+}
+.header .menu .scroll-menu .others .others-item-more {
+  display: none;
+}
+.header .menu .scroll-menu .others .others-item-more .others-item-more-link {
+  display: block;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #7c736c;
+  padding-top: 5px;
+  padding-bottom: 20px;
+}
+.header .menu .scroll-menu .others input[type=checkbox]:checked + .others-item-more {
+  display: block;
+}
+.header .menu .scroll-menu .others #explore:checked + .last-others-item {
+  border-bottom: none;
+}
+.header .menu .scroll-menu .others #explore:checked ~ .others-item-more-last {
+  display: block;
+  border-bottom: 1px solid lightgrey;
+}
+.header .menu #menu:checked ~ .scroll-menu {
+  display: block;
+  height: calc(100vh - 50px);
+  width: 80%;
+  background-color: white;
+  position: absolute;
+  top: 50px;
+  z-index: 2;
+  animation: scroll 0.2s linear;
+  animation-fill-mode: forwards;
+  transform: translateX(-10px);
+}
+.header .hat-img {
+  padding-top: 12px;
+}
+.header .hat-img .logo {
+  display: inline-block;
+  float: right;
+  padding-right: 15px;
+  width: 104px;
+}
+
+@media (min-width: 635px) {
+  .header {
+    height: 90px;
+    display: flex;
+    justify-content: start;
+  }
+  .header .menu {
+    display: none;
+  }
+  .header .hat-img {
+    padding: 0;
+    margin: 0;
+    padding-left: 10px;
+    height: 90px;
+    display: inline-flex;
+    align-items: center;
+    width: 150px;
+  }
+  .header .hat-img .logo {
+    width: 140px;
+  }
+  .header .menu-desktop {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: auto;
+  }
+  .header .menu-desktop .menu-title {
+    padding-left: 5px;
+    padding-right: 5px;
+    font-size: 22px;
+    color: #333;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .header .menu-desktop .menu-title:hover {
+    color: #ad0000;
+  }
+  .header .menu-desktop-settings {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 20px;
+  }
+  .header .menu-desktop-settings .menu-desktop-settings-icon {
+    cursor: pointer;
+  }
+  .header .menu-desktop-settings .menu-desktop-search {
+    display: none;
+    background-color: white;
+    position: absolute;
+    z-index: 5;
+    top: 0px;
+    left: 0px;
+    width: 80%;
+    margin: 0 10%;
+    height: auto;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search {
+    display: block;
+    transition-property: opacity;
+    transition-duration: 0.2s;
+    transition-timing-function: linear;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search .menu-desktop-search-input {
+    height: 30px;
+    width: 90%;
+    margin-left: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    outline: none;
+    border: none;
+    padding-left: 25px;
+    background-image: url("img/search.png");
+    background-size: 18px;
+    background-repeat: no-repeat;
+    background-position: left center;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search .quick-links {
+    padding: 40px;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search .quick-links .ql-header {
+    cursor: pointer;
+    font-size: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #333;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search .quick-links .ql-title {
+    cursor: pointer;
+    font-size: 16px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #666;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    padding-top: 0;
+    padding-bottom: 6px;
+  }
+  .header .menu-desktop-settings #check-search:checked ~ .menu-desktop-search .quick-links .ql-title:hover {
+    color: #ad0000;
+  }
+  .header .menu-desktop-settings .menu-desktop-settings-icon {
+    padding-left: 5px;
+    padding-right: 5px;
+    color: #333;
+    font-size: 18px;
+  }
+}
+@media (min-width: 1050px) {
+  .header .menu-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20%;
+  }
+  .header .menu-desktop .menu-title {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .header .menu-desktop-settings {
+    display: inline-block;
+    float: right;
+    text-align: center;
+    padding-top: 35px;
+  }
+}
+.main input[type=checkbox] {
+  display: none;
+}
+.main .flight {
+  width: 100%;
+}
+.main .flight input[type=radio] {
+  display: none;
+}
+.main .flight .flight-icon {
+  padding-left: 5%;
+  padding-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  height: 52px;
+  background-color: #666;
+  align-items: center;
+  margin-bottom: 2px;
+}
+.main .flight .flight-icon .menu-item-icon {
+  font-size: 24px;
+  color: lightgrey;
+}
+.main .flight .flight-icon .text {
+  color: lightgrey;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 15px;
+  padding-left: 5px;
+}
+.main .flight .flight-icon .icon-down-open {
+  color: lightgrey;
+  padding-right: 10px;
+}
+.main .flight .flight-form {
+  display: none;
+}
+.main .flight #flight, .main .flight #flight-and-hotel, .main .flight #hotel, .main .flight #rental-car {
+  display: none;
+}
+.main .flight #flight:checked ~ .flight-form, .main .flight #flight-and-hotel:checked ~ .flight-form, .main .flight #hotel:checked ~ .flight-form, .main .flight #rental-car:checked ~ .flight-form {
+  display: block;
+  width: 100%;
+  background-color: white;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form, .main .flight #hotel:checked ~ .flight-form .flight-form__form, .main .flight #rental-car:checked ~ .flight-form .flight-form__form {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 15px;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block {
+  width: 88%;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio {
+  display: inline-block;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-text, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-text, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-text, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  height: 25px;
+  line-height: 25px;
+  color: #333;
+  display: inline-block;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-icon, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-icon, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-icon, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .flight-form__radio-icon {
+  display: inline-block;
+  vertical-align: top;
+  color: #c00;
+  font-size: 25px;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .icon-dot-circled, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .icon-dot-circled, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .icon-dot-circled, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio .icon-dot-circled {
+  display: none;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-circle-empty, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-circle-empty, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-circle-empty, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-circle-empty {
+  display: none;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-dot-circled, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-dot-circled, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-dot-circled, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__radio-block .flight-form__radio #flight-form__radio:checked ~ .icon-dot-circled {
+  display: inline-block;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__icon-first, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__icon-first, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__icon-first, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__icon-first {
+  position: absolute;
+  height: 26px;
+  width: 26px;
+  top: 35px;
+  right: 0;
+  left: 0;
+  margin: auto;
+  color: #666;
+  background-color: white;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__input--small, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__input--small {
+  width: 44%;
+  margin-bottom: 10px;
+  height: 56px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: 1px solid #666;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n), .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n), .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n), .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n) {
+  border-right: 1px dotted #666;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n+1), .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n+1), .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n+1), .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__input--small:nth-child(2n+1) {
+  border-left: none;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .special-small, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .special-small, .main .flight #hotel:checked ~ .flight-form .flight-form__form .special-small, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .special-small {
+  width: 44%;
+  margin-bottom: 10px;
+  height: 56px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: 1px solid #666;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n+1), .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n+1), .main .flight #hotel:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n+1), .main .flight #rental-car:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n+1) {
+  border-right: 1px dotted #666;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n), .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n), .main .flight #hotel:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n), .main .flight #rental-car:checked ~ .flight-form .flight-form__form .special-small:nth-child(2n) {
+  border-left: none;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__input--large, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__input--large, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__input--large, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__input--large {
+  width: 88%;
+  margin-bottom: 10px;
+  height: 56px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: 1px solid #666;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__submit, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__submit, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__submit, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__submit {
+  width: 88%;
+  margin-bottom: 10px;
+  height: 56px;
+  background-color: #c00;
+  outline: none;
+  border: none;
+  text-align: center;
+  line-height: 56px;
+  font-size: 16px;
+  color: white;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__submit:hover, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__submit:hover, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__submit:hover, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__submit:hover {
+  background-color: #ad0000;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__form .flight-form__submit .link-icon, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__form .flight-form__submit .link-icon, .main .flight #hotel:checked ~ .flight-form .flight-form__form .flight-form__submit .link-icon, .main .flight #rental-car:checked ~ .flight-form .flight-form__form .flight-form__submit .link-icon {
+  font-size: 10px;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__options, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__options, .main .flight #hotel:checked ~ .flight-form .flight-form__options, .main .flight #rental-car:checked ~ .flight-form .flight-form__options {
+  margin-bottom: 10px;
+  display: flex;
+  padding-left: 6%;
+  padding-right: 6%;
+  width: 88%;
+  flex-wrap: wrap;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__options .flight-form__options-link, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link, .main .flight #hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link, .main .flight #rental-car:checked ~ .flight-form .flight-form__options .flight-form__options-link {
+  display: inline-block;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+  padding-right: 10px;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__options .flight-form__options-link:hover, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link:hover, .main .flight #hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link:hover, .main .flight #rental-car:checked ~ .flight-form .flight-form__options .flight-form__options-link:hover {
+  color: #ad0000;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__options .flight-form__options-link span, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link span, .main .flight #hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link span, .main .flight #rental-car:checked ~ .flight-form .flight-form__options .flight-form__options-link span {
+  font-size: 10px;
+  color: #c00;
+}
+.main .flight #flight:checked ~ .flight-form .flight-form__options .flight-form__options-link .flight-form__options-icon, .main .flight #flight-and-hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link .flight-form__options-icon, .main .flight #hotel:checked ~ .flight-form .flight-form__options .flight-form__options-link .flight-form__options-icon, .main .flight #rental-car:checked ~ .flight-form .flight-form__options .flight-form__options-link .flight-form__options-icon {
+  color: #666;
+  padding-left: 5px;
+}
+.main .flight #flight:checked ~ .flight-icon, .main .flight #flight-and-hotel:checked ~ .flight-icon, .main .flight #hotel:checked ~ .flight-icon, .main .flight #rental-car:checked ~ .flight-icon {
+  background-color: rgba(255, 255, 255, 0);
+}
+.main .flight #flight:checked ~ .flight-icon span, .main .flight #flight-and-hotel:checked ~ .flight-icon span, .main .flight #hotel:checked ~ .flight-icon span, .main .flight #rental-car:checked ~ .flight-icon span {
+  color: #c00;
+}
+.main .stage-teaser {
+  display: none;
+}
+.main .check-in-and-ejournals {
+  background-color: white;
+}
+.main .check-in-and-ejournals .check-in-form {
+  width: 100%;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor {
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 30px;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  color: #333;
+  padding-bottom: 25px;
+  display: block;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in__input {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 51px;
+  font-size: 16px;
+  padding-left: 10px;
+  border: 1px solid lightgrey;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in-form__submit {
+  width: 100%;
+  margin-bottom: 10px;
+  height: 51px;
+  background-color: #c00;
+  outline: none;
+  border: none;
+  text-align: center;
+  line-height: 51px;
+  font-size: 16px;
+  color: white;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in-form__submit:hover {
+  background-color: #ad0000;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in__options {
+  margin-bottom: 10px;
+  display: block;
+  width: 100%;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in__options .check-in__options-link {
+  display: block;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 25px;
+  padding-right: 10px;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in__options .check-in__options-link span {
+  font-size: 10px;
+  color: #c00;
+}
+.main .check-in-and-ejournals .check-in-form .check-in-decor .check-in__options .check-in__options-link:hover {
+  color: #ad0000;
+}
+.main .check-in-and-ejournals .ejournals {
+  display: none;
+}
+.main .offers-from {
+  width: 100%;
+  background-color: #f2f2f2;
+}
+.main .offers-from .offers-from__headline {
+  padding-top: 40px;
+  padding-bottom: 20px;
+  text-align: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+.main .offers-from .offers-from__headline .red-headline {
+  color: #c00;
+}
+.main .offers-from .offers-from__content {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  display: block;
+}
+.main .offers-from .offers-from__content:hover .offers-from__img {
+  transform: scale(1.05);
+}
+.main .offers-from .offers-from__content .offers-from__circle-block {
+  position: absolute;
+  overflow: hidden;
+  height: 100%;
+  left: 0px;
+  right: 0px;
+  width: 90%;
+  max-width: 460px;
+  max-height: 307px;
+  display: block;
+  margin: 0 auto;
+}
+.main .offers-from .offers-from__content .offers-from__circle-block .offers-from__circle-block-rel {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.main .offers-from .offers-from__content .offers-from__circle-block .offers-from__circle-block-rel .offers-from__circle {
+  position: absolute;
+  top: -30px;
+  left: 40px;
+  z-index: 1;
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+  background-color: #c00;
+  color: white;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 26px;
+  padding-top: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.main .offers-from .offers-from__content .offers-from__img {
+  transition: all 0.2s linear;
+  display: block;
+  object-position: left center;
+  object-fit: cover;
+  width: 90%;
+  max-width: 460px;
+  height: 60vw;
+  max-height: 307px;
+  margin: 0 auto;
+}
+.main .offers-from .offers-from__content a {
+  max-width: 460px;
+  display: block;
+  color: #666;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  width: 90%;
+  margin: 0 auto;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+.main .offers-from .offers-from__content a .offers-from__icon-info {
+  font-size: 16px;
+}
+.main .offers-from .offers-info__button {
+  display: block;
+  width: 130px;
+  height: 48px;
+  padding: 0 20px;
+  background-color: #c00;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+}
+.main .offers-from .offers-info__button:hover {
+  background-color: #ad0000;
+}
+.main .news {
+  padding-top: 80px;
+  background-color: #f2f2f2;
+}
+.main .news .news-link {
+  display: flex;
+  width: calc(100% - 40px);
+  height: 27vw;
+  background-color: white;
+  margin: 20px;
+  transition: 0.4s;
+}
+.main .news .news-link:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+.main .news .news-link .news-link__image {
+  display: inline-block;
+  object-fit: cover;
+  width: 30%;
+  height: 100%;
+}
+.main .news .news-link .news-link__text {
+  height: 100%;
+  width: 70%;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  padding-left: 18px;
+}
+.main .news .news-link .news-link__about {
+  display: none;
+}
+.main .news .news-link .news-link__read-more {
+  display: none;
+}
+.main .news .news-link .news-link__icon {
+  display: none;
+}
+.main .news .news-link__last {
+  height: calc(27vw + 20px);
+  margin-bottom: 0;
+  border-bottom: 20px solid #f2f2f2;
+}
+.main .swiss-holidays {
+  width: 100%;
+  height: 645px;
+  background-image: url("../image/img1/9.jpg");
+  background-size: cover;
+  z-index: 1;
+}
+.main .swiss-holidays .swiss-holidays__color {
+  background-image: linear-gradient(181deg, rgba(55, 42, 32, 0.65), rgba(87, 71, 60, 0)), linear-gradient(rgba(0, 0, 0, 0.31), rgba(0, 0, 0, 0.31)), linear-gradient(44deg, rgba(103, 54, 15, 0.57), rgba(84, 81, 65, 0.5));
+  position: absolute;
+  width: 100%;
+  height: 645px;
+}
+.main .swiss-holidays .swiss-holidays__color .swiss-holidays__header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+.main .swiss-holidays .swiss-holidays__color .swiss-holidays__headline {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising {
+  background-color: white;
+  width: 70%;
+  height: 420px;
+  margin: 20px auto;
+  position: relative;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__img {
+  width: 100%;
+  display: block;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__img:hover {
+  transform: scale(1.03);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.1;
+  font-weight: 700;
+  padding: 7px 10px 7px 10px;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__headline {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: #666;
+  line-height: 1.1;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__headline .advertising__headline-red {
+  color: #c00;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #666;
+  line-height: 1.3;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__link {
+  width: 100%;
+  color: #c00;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  display: inline-block;
+  padding: 15px 10px 15px 10px;
+  position: absolute;
+  bottom: 0;
+  float: bottom;
+  border-top: 1px solid lightgrey;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising .advertising__link .advertising__icon {
+  font-size: 10px;
+  margin-left: 2px;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising-desktop {
+  display: none;
+}
+.main .swiss-holidays .swiss-holidays__color .advertising-note {
+  display: none;
+}
+.main .swiss-holidays .swiss-holidays__color .swiss-holidays__button {
+  display: block;
+  width: 150px;
+  height: 48px;
+  background-color: #c00;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+}
+.main .swiss-holidays .swiss-holidays__color .swiss-holidays__button:hover {
+  background-color: #ad0000;
+}
+.main .swiss-holidays .swiss-holidays__color .swiss-holidays__button .swiss-holidays__icon {
+  color: white;
+  font-size: 10px;
+}
+.main .navigation-list {
+  width: 100%;
+  height: 420px;
+  background-color: #f2f2f2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  text-align: center;
+  padding-bottom: 30px;
+}
+.main .navigation-list .navigation-list__link-last {
+  grid-column: 1/3;
+}
+.main .navigation-list .navigation-list__link {
+  color: #333;
+  font-size: 16px;
+  font-family: "Noto Sans TC", sans-serif;
+}
+.main .navigation-list .navigation-list__link .navigation-list__big-icon {
+  font-size: 40px;
+  color: #666;
+  display: block;
+  padding-top: 50px;
+}
+.main .navigation-list .navigation-list__link .navigation-list__text {
+  display: inline-block;
+  margin-top: 20px;
+}
+.main .navigation-list .navigation-list__link .navigation-list__small-icon {
+  font-size: 10px;
+  color: #c00;
+  padding-left: 5px;
+}
+.main .navigation-list .navigation-list__link .navigation-list__text-about {
+  display: none;
+}
+.main .navigation-list .navigation-list__link .navigation-list__text-more {
+  display: none;
+}
+.main .navigation-list .navigation-list__link .navigation-list__small-s-icon {
+  display: none;
+}
+.main .palma-de-mallorca {
+  width: 100%;
+  height: 645px;
+  background-image: url("../image/img1/11.jpg");
+  background-size: cover;
+  z-index: 1;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color {
+  background-image: linear-gradient(181deg, rgba(55, 42, 32, 0.65), rgba(87, 71, 60, 0)), linear-gradient(rgba(0, 0, 0, 0.31), rgba(0, 0, 0, 0.31)), linear-gradient(44deg, rgba(103, 54, 15, 0.57), rgba(84, 81, 65, 0.5));
+  position: absolute;
+  width: 100%;
+  height: 645px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  padding-top: 40px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__headline {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 24px;
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation {
+  background-color: white;
+  width: 70%;
+  height: 380px;
+  margin: 20px auto;
+  display: block;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation.accomodation-desktop {
+  display: none;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation.accomodation-note {
+  display: none;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__img {
+  width: 100%;
+  display: block;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__img:hover {
+  transform: scale(1.03);
+  transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__pre {
+  height: 32px;
+  text-align: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  color: #7c736c;
+  padding: 8px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #333;
+  line-height: 1.1;
+  font-weight: 700;
+  text-align: center;
+  padding: 7px 10px 7px 10px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__headline {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  color: #333;
+  line-height: 1.1;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: center;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .accomodation .accomodation__text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 14px;
+  color: #7c736c;
+  text-align: center;
+  line-height: 1.3;
+  padding-top: 15px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__button {
+  display: block;
+  width: 250px;
+  height: 48px;
+  background-color: #c00;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 60px;
+}
+.main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__button:hover {
+  background-color: #ad0000;
+}
+.main .product-teaser {
+  background-image: url("../image/img1/13.jpg");
+  width: 100%;
+  height: 350px;
+  background-size: cover;
+  z-index: 1;
+}
+.main .product-teaser .product-teaser__color {
+  width: 100%;
+  height: 350px;
+  background: linear-gradient(to right, rgba(51, 51, 51, 0.95) 0, rgba(51, 51, 51, 0.95) 25%, rgba(51, 51, 51, 0) 75%, rgba(51, 51, 51, 0) 100%);
+}
+.main .product-teaser .product-teaser__color .product-teaser__header {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 28px;
+  color: white;
+  line-height: 1.1;
+  font-weight: 700;
+  padding-left: 20px;
+  padding-top: 200px;
+}
+.main .product-teaser .product-teaser__color .product-teaser__text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 28px;
+  color: white;
+  line-height: 1.1;
+  padding-left: 20px;
+}
+.main .product-teaser .product-teaser__color .product-teaser__list {
+  display: none;
+}
+.main .product-teaser .product-teaser__color .product-teaser__button {
+  display: block;
+  width: 150px;
+  height: 48px;
+  background-color: #c00;
+  box-sizing: border-box;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  line-height: 48px;
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.main .product-teaser .product-teaser__color .product-teaser__button:hover {
+  background-color: #ad0000;
+}
+.main .main-navigation {
+  width: 100%;
+  background-color: white;
+}
+.main .main-navigation .main-navigation__line {
+  margin-top: 40px;
+  border-bottom: 1px solid lightgrey;
+}
+.main .main-navigation .main-navigation__list {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 95%;
+  margin: 0 auto;
+}
+.main .main-navigation .main-navigation__list .main-navigation__item {
+  height: 40px;
+  border-bottom: 1px solid lightgrey;
+  display: flex;
+  justify-content: space-between;
+}
+.main .main-navigation .main-navigation__list .main-navigation__text {
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  line-height: 40px;
+  font-weight: 700;
+  color: #333;
+  width: 90%;
+}
+.main .main-navigation .main-navigation__list .main-navigation__icon {
+  font-size: 16px;
+  line-height: 40px;
+  color: #c00;
+}
+.main .main-navigation .main-navigation__list .main-navigation__other {
+  display: none;
+}
+.main .main-navigation .main-navigation__list .main-navigation__other .main-navigation__other-link {
+  display: block;
+  font-family: "Noto Sans TC", sans-serif;
+  color: #666;
+  font-size: 14px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgrey;
+}
+.main .main-navigation .main-navigation__list .main-navigation__other .main-navigation__other-link:hover {
+  color: #ad0000;
+  background-color: #eee;
+}
+.main .main-navigation .main-navigation__list input[type=checkbox]:checked + .main-navigation__other {
+  display: block;
+}
+.main .main-navigation .social {
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 15px;
+}
+.main .main-navigation .social .social-icon {
+  color: #333;
+  font-weight: 100;
+  border-radius: 50px;
+  font-size: 20px;
+  padding: 5px;
+  width: 20px;
+  height: 20px;
+}
+.main .main-navigation .social .social-icon:hover {
+  background-color: #eee;
+}
+
+@media (min-width: 635px) {
+  .main {
+    position: relative;
+  }
+  .main .flight {
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+  }
+  .main .flight:first-child {
+    border-left: none;
+  }
+  .main .flight:nth-child(5) {
+    border-right: none;
+  }
+  .main .flight .flight-form {
+    position: absolute;
+    width: 100%;
+    top: 52px;
+    left: 0px;
+    background-color: white;
+    border: 1px solid #666;
+  }
+  .main .flight .flight-icon {
+    display: flex;
+    justify-content: center;
+  }
+  .main .flight .flight-icon .menu-item-icon {
+    color: white;
+    font-size: 16px;
+  }
+  .main .flight .flight-icon .text {
+    color: white;
+    font-size: 12px;
+    padding-left: 0;
+  }
+  .main .flight .flight-icon .icon-down-open {
+    display: none;
+  }
+  .main .stage-teaser {
+    display: flex;
+    align-items: flex-end;
+    margin-top: 309px;
+    width: 100%;
+    height: 280px;
+    background-image: url("../image/img1/14.jpg");
+    background-size: cover;
+  }
+  .main .stage-teaser a {
+    display: block;
+    color: white;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    margin-right: auto;
+    padding-left: 5px;
+    cursor: pointer;
+  }
+  .main .stage-teaser a .stage-teaser__icon-info {
+    font-size: 18px;
+  }
+  .main .check-in-and-ejournals {
+    width: 100%;
+  }
+  .main .check-in-and-ejournals .check-in-form {
+    border-right: 1px solid lightgrey;
+    display: inline-block;
+    width: 50%;
+  }
+  .main .check-in-and-ejournals .check-in-form .check-in-decor .check-in {
+    font-size: 28px;
+  }
+  .main .check-in-and-ejournals .ejournals {
+    display: inline-block;
+    width: 50%;
+    vertical-align: top;
+  }
+  .main .check-in-and-ejournals .ejournals .ejournals-img {
+    width: 140px;
+    height: 140px;
+    margin: 30px 15px 15px 15px;
+    float: left;
+  }
+  .main .check-in-and-ejournals .ejournals .ejournals-header {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 24px;
+    color: #333;
+    margin-left: 30px;
+    margin-top: 30px;
+  }
+  .main .check-in-and-ejournals .ejournals .ejournals-text {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 15px;
+    color: #666;
+    line-height: 1.2;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-right: 30px;
+  }
+  .main .check-in-and-ejournals .ejournals .ejournals-submit {
+    display: block;
+    margin: 30px auto 0 auto;
+    width: 90%;
+    height: 51px;
+    background-color: #c00;
+    outline: none;
+    border: none;
+    text-align: center;
+    line-height: 51px;
+    font-size: 16px;
+    color: white;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .main .check-in-and-ejournals .ejournals .ejournals-submit:hover {
+    background-color: #ad0000;
+  }
+  .main .offers-from .offers-from__content {
+    width: 50%;
+    display: inline-block;
+  }
+  .main .offers-from .offers-from__content .offers-from__img {
+    width: 95%;
+    height: 30vw;
+    max-height: 100%;
+  }
+  .main .news .news-link {
+    display: inline-flex;
+    flex-flow: column nowrap;
+    width: 31.5%;
+    margin: 5px;
+    height: 52vw;
+    vertical-align: top;
+  }
+  .main .news .news-link .news-link-first {
+    margin-left: 10px;
+  }
+  .main .news .news-link .news-link-last {
+    margin-right: 10px;
+  }
+  .main .news .news-link .news-link__image {
+    width: 100%;
+    height: 40%;
+  }
+  .main .news .news-link .news-link__text {
+    height: auto;
+    width: 85%;
+    display: block;
+    margin: 20px 20px 10px 20px;
+    padding: 0;
+    font-size: 18px;
+  }
+  .main .news .news-link .news-link__about {
+    display: block;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin: 0 20px;
+  }
+  .main .news .news-link .news-link__read-more {
+    margin-top: auto;
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 14px;
+    color: #c00;
+    display: block;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    border-top: 1px solid lightgrey;
+  }
+  .main .news .news-link .news-link__icon {
+    display: inline-block;
+    font-size: 12px;
+  }
+  .main .news .news-link__last {
+    height: 52vw;
+    margin-bottom: 0;
+    border-bottom: none;
+  }
+  .main .swiss-holidays {
+    height: 800px;
+  }
+  .main .swiss-holidays .swiss-holidays__color {
+    height: 800px;
+  }
+  .main .swiss-holidays .swiss-holidays__color .swiss-holidays__header {
+    padding-top: 60px;
+    font-size: 38px;
+  }
+  .main .swiss-holidays .swiss-holidays__color .advertising {
+    vertical-align: top;
+    width: 42%;
+    height: 460px;
+    margin: 30px 20px 30px 20px;
+    display: inline-block;
+  }
+  .main .swiss-holidays .swiss-holidays__color .advertising-desktop {
+    display: inline-block;
+  }
+  .main .swiss-holidays .swiss-holidays__color .advertising-note {
+    display: none;
+  }
+  .main .navigation-list {
+    height: 600px;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .main .navigation-list .navigation-list__link {
+    width: 27%;
+    display: flex;
+    flex-direction: column;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__text {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__small-icon {
+    display: none;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__text-about {
+    display: inline-block;
+    color: #333;
+    font-size: 16px;
+    font-family: "Noto Sans TC", sans-serif;
+    padding: 20px 10px;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__text-more {
+    margin-top: auto;
+    display: inline-block;
+    color: #c00;
+    font-size: 16px;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__small-s-icon {
+    display: inline-block;
+    font-size: 10px;
+    color: #c00;
+    padding-left: 5px;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__text-more-icon {
+    font-size: 12px;
+  }
+  .main .palma-de-mallorca {
+    height: 750px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color {
+    height: 750px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__header {
+    font-size: 38px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .palma-de-mallorca__headline {
+    font-size: 28px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .accomodation {
+    width: 30.5%;
+    display: inline-block;
+    vertical-align: top;
+    height: 380px;
+    margin: 40px 8px 20px 8px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .accomodation.accomodation-desktop {
+    display: inline-block;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .accomodation.accomodation-note {
+    display: none;
+  }
+  .main .product-teaser {
+    height: 470px;
+  }
+  .main .product-teaser .product-teaser__color {
+    height: 470px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__header {
+    font-size: 38px;
+    padding-right: 20px;
+    padding-top: 70px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__text {
+    font-size: 38px;
+    padding-bottom: 30px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__list {
+    display: block;
+    padding-left: 20px;
+    padding-bottom: 40px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__list .product-teaser__item {
+    margin-bottom: 10px;
+    color: white;
+    font-family: "Noto Sans TC", sans-serif;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__list .product-teaser__item .product-teaser__item-icon {
+    color: white;
+    font-size: 14px;
+    padding-right: 5px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__button {
+    font-size: 15px;
+  }
+  .main .product-teaser .product-teaser__color .product-teaser__button .product-teaser__icon {
+    font-size: 12px;
+    padding-left: 3px;
+  }
+  .main .main-navigation {
+    width: 100%;
+  }
+  .main .main-navigation .main-navigation__list {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+  }
+  .main .main-navigation .main-navigation__list .main-navigation__item-section {
+    width: 25%;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .main .main-navigation .main-navigation__list .main-navigation__item-section .main-navigation__icon {
+    display: none;
+  }
+  .main .main-navigation .main-navigation__list .main-navigation__item-section .main-navigation__other {
+    width: 100%;
+    display: inline-block;
+  }
+  .main .main-navigation .main-navigation__list .main-navigation__item-section .main-navigation__other .main-navigation__other-link {
+    font-family: "Noto Sans TC", sans-serif;
+    color: #666;
+    font-size: 14px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid lightgrey;
+  }
+}
+@media (min-width: 1050px) {
+  .main {
+    background-image: url("../image/img1/14.jpg");
+    background-size: 100% 20%;
+    background-repeat: no-repeat;
+  }
+  .main .options-block {
+    display: block;
+    max-width: 1224px;
+    margin: 0 auto;
+    position: relative;
+    height: 677px;
+  }
+  .main .options-block .flight {
+    background-color: white;
+  }
+  .main .options-block .flight #flight:checked ~ .flight-form, .main .options-block .flight #flight-and-hotel:checked ~ .flight-form, .main .options-block .flight #hotel:checked ~ .flight-form, .main .options-block .flight #rental-car:checked ~ .flight-form {
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+  .main .stage-teaser {
+    margin-top: 0;
+    height: 625px;
+    display: none;
+  }
+  .main .offers-from .offers-from__content {
+    width: 50%;
+    display: inline-block;
+  }
+  .main .offers-from .offers-from__content .offers-from__img {
+    max-width: none;
+    width: 95%;
+    height: 30vw;
+    max-height: 100%;
+  }
+  .main .news .news-link {
+    height: 30vw;
+  }
+  .main .news .news-link__image {
+    height: 60%;
+  }
+  .main .swiss-holidays .swiss-holidays__color .advertising {
+    vertical-align: top;
+    width: calc(25% - 25px);
+    height: 400px;
+    margin: 30px 10px 30px 10px;
+    display: inline-block;
+  }
+  .main .swiss-holidays .swiss-holidays__color .advertising-note {
+    display: inline-block;
+  }
+  .main .navigation-list {
+    height: 510px;
+    display: block;
+  }
+  .main .navigation-list .navigation-list__link {
+    padding-top: 90px;
+    width: 19%;
+    display: inline-block;
+  }
+  .main .navigation-list .navigation-list__link .navigation-list__text-about {
+    display: inline-block;
+    padding: 20px 30px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .accomodation {
+    width: 18.7%;
+    display: inline-block;
+    vertical-align: top;
+    height: 380px;
+    margin: 40px 8px 20px 8px;
+  }
+  .main .palma-de-mallorca .palma-de-mallorca__color .accomodation.accomodation-note {
+    display: inline-block;
+  }
+}
+.footer {
+  width: 100%;
+  height: 160px;
+  background-color: #f2f2f2;
+}
+.footer .footer-logo {
+  display: block;
+  height: 37px;
+  width: 75px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+.footer .footer-logo:hover {
+  opacity: 0.5;
+}
+.footer .fool-name {
+  text-align: center;
+  display: block;
+  height: 26px;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  color: #6f6660;
+  margin-top: 10px;
+}
+.footer .footer-links {
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.footer .footer-links .footer-link {
+  text-align: center;
+  font-family: "Noto Sans TC", sans-serif;
+  font-size: 12px;
+  color: #6f6660;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.footer .footer-links .footer-link:hover {
+  color: #ad0000;
+}
+
+/*# sourceMappingURL=style1.css.map */
