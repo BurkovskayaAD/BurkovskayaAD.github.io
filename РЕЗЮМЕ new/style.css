@@ -3,7 +3,7 @@ body{
 }
 
 header{
-	background-color: #efd4a2;
+	background-color: #e0be7e;
 
 }
 
@@ -64,5 +64,60 @@ header{
 }
 
 .info-p:hover{
-	color: blue;
+	color: #7a5200;
+}
+
+.bigBl{
+	padding-top: 30px;
+	width: 100%;
+
+}
+
+.topic{
+	background-color: #e0be7e;
+	color: white;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 27px;
+	text-align: center;
+	font-weight: bold;
+	width: 70%;
+	margin-left: 15%;
+	height: 40px;
+	line-height: 40px;
+}
+
+.txtDate{
+	padding: 17px 10px 10px 10px;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 20px;
+}
+
+.txt{
+	padding: 0 10px 0 20px;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 20px;
+}
+
+.txtSk{
+	padding: 0 10px 0 10px;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 20px;
+	display: block;
+}
+
+.first{
+	padding-top: 17px;
+}
+
+.txtLi{
+	padding: 0 10px 0 10px;
+	font-family: 'Philosopher', sans-serif;
+	font-size: 20px;
+	display: block;
+	color: black;
+	text-decoration: none;
+}
+
+.txtLi:hover{
+	color: #7a5200;
 }
