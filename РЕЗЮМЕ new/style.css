@@ -121,3 +121,63 @@ header{
 .txtLi:hover{
 	color: #7a5200;
 }
+
+@media(min-width: 666px){
+
+	body{
+		width: 100%;
+		display: flex;
+	}
+
+	header{
+		width: 40%;
+		height: 100%;
+		display: inline-block;
+		margin: auto;
+		position: fixed;
+	}
+
+	main{
+		margin-left: 40%;
+		width: 60%;
+		display: inline-block;
+	}
+
+	.myPhoto{
+		margin-top: 20%;
+	}
+
+	.topic{
+		width: 80%;
+		margin-right: 10%;
+		margin-left: 10%;
+	}
+
+	.bigBl{
+		padding-bottom: 20px;
+	}
+
+}
+
+@media(min-width: 1100px){
+
+	body{
+		max-width: 1100px;
+		margin-right: auto;
+		margin-left: auto;
+		border-left: 1px solid black;
+		border-right: 1px solid black;
+	}
+
+	header{
+		width: 400px;
+	}
+
+	main{
+		width: 700px;
+	}
+
+	.topic{
+		width: 500px;
+	}
+}
